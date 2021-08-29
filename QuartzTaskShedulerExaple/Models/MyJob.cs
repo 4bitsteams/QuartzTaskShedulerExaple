@@ -9,6 +9,7 @@ namespace QuartzTaskShedulerExaple.Models
     {
         public MyJob(Type type,string Expression)
         {
+            Common.Logs($"MyJob at "+DateTime.Now.ToString("dd-MMM-yyy hh:mm:ss"), "MyJob at " + DateTime.Now.ToString("hhmmss"));
             this.Type = type;
             this.Expression = Expression;
         }
