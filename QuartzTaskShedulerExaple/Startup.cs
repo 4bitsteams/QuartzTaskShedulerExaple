@@ -46,7 +46,7 @@ namespace QuartzTaskShedulerExaple
             services.AddSingleton<IJobFactory, SingletonJobFactory>();
             services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
             services.AddSingleton<JobReminder>();
-            services.AddSingleton(new MyJob(type: typeof(JobReminder), Expression: "0/30 0/1 *1/1 * ? *"));
+            services.AddSingleton(new MyJob(type: typeof(JobReminder), Expression: "0/30 0/1 * 1/1 * ? *"));
             //End By Rubel
         }
 
