@@ -27,7 +27,7 @@ namespace QuartzTaskShedulerExaple.Service
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            Common.Logs($"StartAsync at " + DateTime.Now.ToString("dd-MMM-yyy hh:mm:ss"), "MyJob at " + DateTime.Now.ToString("hhmmss"));
+            Common.Logs($"StartAsync at " + DateTime.Now.ToString("dd-MMM-yyy hh:mm:ss"), "StartAsync at " + DateTime.Now.ToString("hhmmss"));
 
             Scheduler = await _schedulerFactory.GetScheduler(cancellationToken);
             Scheduler.JobFactory = _jobFactory;
@@ -43,7 +43,7 @@ namespace QuartzTaskShedulerExaple.Service
 
         public async Task StopAsync(CancellationToken cancellationToken)
         {
-            Common.Logs($"StopAsync at " + DateTime.Now.ToString("dd-MMM-yyy hh:mm:ss"), "MyJob at " + DateTime.Now.ToString("hhmmss"));
+            Common.Logs($"StopAsync at " + DateTime.Now.ToString("dd-MMM-yyy hh:mm:ss"), "StopAsync at " + DateTime.Now.ToString("hhmmss"));
             await Scheduler?.Shutdown(cancellationToken);
         }
 
