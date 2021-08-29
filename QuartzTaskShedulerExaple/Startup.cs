@@ -12,6 +12,11 @@ using QuartzTaskShedulerExaple.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QuartzTaskShedulerExaple.Service;
+using Quartz.Spi;
+using Quartz;
+using Quartz.Impl;
+using QuartzTaskShedulerExaple.Models;
 
 namespace QuartzTaskShedulerExaple
 {
@@ -34,6 +39,15 @@ namespace QuartzTaskShedulerExaple
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            //Start By Rubel
+
+            services.AddHostedService<QuartzHostedService>();
+            services.AddSingleton<IJobFactory, SingletonJobFactory>();
+            services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+            services.AddSingleton<JobReminder>();
+            services.AddSingleton(new MyJob(type: typeof(JobReminder), Expression: "0/30 0/1 *1/1 * ? *"));
+            //End By Rubel
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
