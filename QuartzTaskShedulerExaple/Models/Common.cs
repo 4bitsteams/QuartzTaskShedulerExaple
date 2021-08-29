@@ -21,7 +21,7 @@ namespace QuartzTaskShedulerExaple.Models
 
             using FileStream fileStream = new FileStream(path, FileMode.Create);
             using TextWriter textWriter = new StreamWriter(fileStream);
-            textWriter.WriteLine();
+            textWriter.WriteLine(message);
         }
     }
 }
